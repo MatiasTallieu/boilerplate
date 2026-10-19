@@ -38,7 +38,20 @@ export function InputField({
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  input: {},
-  inputError: {},
+  container: {
+    marginBottom: 16,
+  },
+  input: {
+    height: 48,
+    marginTop: 7,
+    borderWidth: 1,
+    borderColor: '#e1e1e1',
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    color: '#333333',
+    fontSize: 14,
+  },
+  inputError: {
+    borderColor: '#c0392b',
+  },
 });

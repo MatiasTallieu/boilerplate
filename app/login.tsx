@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../src/state/useAuthStore';
 import { InputField } from '../src/components/primitives/InputField';
 import { StyledButton } from '../src/components/StyledButton';
-import { Stack } from '../src/components/primitives/Stack';
 import { Text } from '../src/components/primitives/Text';
 
 export default function LoginScreen() {
@@ -25,34 +24,80 @@ export default function LoginScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack gap="lg" padding="lg">
-        <Text size="xl" weight="bold" align="center">Welcome back</Text>
-        <InputField
-          label="Email"
-          value={email}
-          onChangeText={setEmail}
-          placeholder="you@example.com"
-          testID="email-input"
+      <View style={styles.panel}>
+        <Image
+            source={require('../public/PillzLogo.png')}
+            style={styles.logoPlaceholder}
+            resizeMode="contain"
+            accessibilityLabel="Pillz logo"
         />
-        <InputField
-          label="Password"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-          testID="password-input"
-          error={error !== '' ? error : undefined}
-        />
-        <StyledButton
-          label="Log in"
-          onPress={handleLogin}
-          isLoading={isLoading}
-          testID="login-button"
-        />
-      </Stack>
+        <View style={styles.form}>
+          <InputField
+            label="Email"
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Value"
+            testID="email-input"
+          />
+          <InputField
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+            placeholder="Value"
+            testID="password-input"
+            error={error !== '' ? error : undefined}
+          />
+          <StyledButton
+            label="Sign In"
+            onPress={handleLogin}
+            isLoading={isLoading}
+            testID="login-button"
+          />
+          <Text size="sm" color="#333333" style={styles.forgotPassword}>Forgot password?</Text>
+        </View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    justifyContent: 'center',
+  },
+  panel: {
+    width: '100%',
+    maxWidth: 420,
+    minHeight: 560,
+    alignSelf: 'center',
+    backgroundColor: '#ffffff',
+    borderRadius: 32,
+    alignItems: 'center',
+    paddingTop: 58,
+    paddingBottom: 42,
+  },
+  logoPlaceholder: {
+    width: 105,
+    height: 105,
+    marginBottom: 12,
+  },
+  form: {
+    width: '86%',
+    maxWidth: 360,
+    marginTop: 48,
+    borderWidth: 1,
+    borderColor: '#e4e4e4',
+    borderRadius: 14,
+    paddingHorizontal: 18,
+    paddingTop: 20,
+    paddingBottom: 18,
+  },
+  forgotPassword: {
+    marginTop: 16,
+    textDecorationLine: 'underline',
+  },
 });

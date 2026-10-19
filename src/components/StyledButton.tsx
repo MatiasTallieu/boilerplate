@@ -24,14 +24,19 @@ export function StyledButton({
       style={[styles.base, styles[variant], isLoading && styles.disabled]}
       testID={testID}
     >
-      {isLoading ? <Spinner size="small" /> : <Text weight="medium">{label}</Text>}
+      {isLoading ? <Spinner size="small" /> : <Text size="sm" weight="medium" color="#ffffff">{label}</Text>}
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  base: { alignItems: 'center', justifyContent: 'center' },
-  primary: {},
+  base: {
+    minHeight: 46,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+  },
+  primary: { backgroundColor: '#2f2f2f' },
   secondary: {},
   disabled: {},
 });
