@@ -1,2 +1,6 @@
 # PILLZ APP
-To run the app use the commando: npx expo start 
+
+ To run the app on web use the following command
+
+    npx expo start --web
+
