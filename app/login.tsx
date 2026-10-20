@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { router } from 'expo-router';
-import { useAuthStore } from '../src/state/useAuthStore';
-import { InputField } from '../src/components/primitives/InputField';
-import { StyledButton } from '../src/components/StyledButton';
-import { Text } from '../src/components/primitives/Text';
+import { useAuthStore } from '@/state/useAuthStore';
+import { InputField } from '@/components/primitives/InputField';
+import { StyledButton } from '@/components/StyledButton';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -54,7 +53,6 @@ export default function LoginScreen() {
             isLoading={isLoading}
             testID="login-button"
           />
-          <Text size="sm" color="#333333" style={styles.forgotPassword}>Forgot password?</Text>
         </View>
       </View>
     </View>
@@ -95,9 +93,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingTop: 20,
     paddingBottom: 18,
-  },
-  forgotPassword: {
-    marginTop: 16,
-    textDecorationLine: 'underline',
   },
 });
